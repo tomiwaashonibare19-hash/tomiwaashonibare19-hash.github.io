@@ -1,132 +1,240 @@
-<!DOCTYPE html>
+f<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>d
+    <!--
+    ============================================================
+    HEAD — metadata, SEO, and asset links
+    ============================================================
+    Best practices:
+    - charset must be the very first meta tag
+    - viewport meta is required for responsive design
+    - description is used by search engines
+    - All file paths are RELATIVE (no http:// links needed)
+    ============================================================
+  -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Tomiwa's personal portfolio — web developer who builds beautiful, fast, and responsive websites." />
     <title>Tomiwa | Web Developer Portfolio</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
+
+    <!--
+    Link to our LOCAL stylesheet.
+    Path: assets/css/style.css (relative to index.html)
+    NO external CDN links — everything is self-contained.
+  -->
+    <link rel="stylesheet" href="assets/css/style.css" />
 </head>
+
 <body>
 
-    <header>
-        <div class="nav-container">
-            <a href="#home" class="logo">Tomiwa</a>
-            <nav>
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#connect">Contact</a>
+    <!-- ========================================================
+       HEADER — fixed navigation bar
+       ======================================================== -->
+    <header id="site-header">
+        <div class="container header-inner">
+
+            <!-- Logo / Name -->
+            <div class="logo">Tomiwa</div>
+
+            <!--
+                Desktop Navigation
+                Uses <a href="#id"> to anchor-link to each section.
+                CSS scroll-behavior: smooth handles the animation.
+            -->
+            <nav class="nav-desktop" aria-label="Main navigation">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </nav>
+
+            <!--
+                Mobile Hamburger Button
+                - aria-expanded: tells screen readers if the menu is open
+                - aria-controls: links this button to the mobile nav below
+                - Three <span class="bar"> elements form the ☰ icon via CSS
+            -->
+            <button id="hamburger-btn" class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false"
+                aria-controls="mobile-nav">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
         </div>
+
+        <!--
+            Mobile Navigation Dropdown
+            - `hidden` attribute hides it by default (JS removes it to show)
+            - JS in assets/js/script.js manages the toggle logic
+        -->
+        <nav id="mobile-nav" class="nav-mobile" aria-label="Mobile navigation" hidden>
+            <div class="container">
+                <a href="#home" class="nav-link mobile-link">Home</a>
+                <a href="#about" class="nav-link mobile-link">About</a>
+                <a href="#projects" class="nav-link mobile-link">Projects</a>
+                <a href="#contact" class="nav-link mobile-link">Contact</a>
+            </div>
+        </nav>
     </header>
 
-    <section id="home">
-        <h1>Hi, I'm Tomiwa</h1>
-        <p>I build websites.</p>
+
+    <!-- ========================================================
+       HERO — full-screen welcome section
+       id="home" is the anchor target for the nav links
+       ======================================================== -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <!--
+                Only ONE <h1> per page — best practice for SEO and accessibility.
+                This is the most important heading on the page.
+            -->
+            <h1 class="hero-title">Hi, I'm Tomiwa</h1>
+            <p class="hero-subtitle">I build websites.</p>
+        </div>
     </section>
 
-    <section id="about">
-        <h2 class="section-title">About Me</h2>
-        <p class="section-subtitle">I'm a passionate web developer with a love for creating functional and responsive websites.</p>
-        
-        <div class="about-grid">
-            <div class="about-card">
-                <div class="icon-wrapper">
-                    <i class="fa-solid fa-code"></i>
-                </div>
-                <h3>Development</h3>
-                <p>Clean, efficient code</p>
+
+    <!-- ========================================================
+       ABOUT — skills summary section
+       ======================================================== -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+
+            <div class="about-intro">
+                <p>
+                    I'm a passionate web developer with a love for creating beautiful,
+                    functional websites. With expertise in modern web technologies,
+                    I transform ideas into engaging digital experiences that users love.
+                </p>
             </div>
-            <div class="about-card">
-                <div class="icon-wrapper">
-                    <i class="fa-solid fa-palette"></i>
+
+            <!-- Skill Cards Grid -->
+            <div class="skills-grid">
+
+                <!-- Card 1: Development -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <!--
+              Icon loaded from a LOCAL .svg file.
+              - src path is relative to index.html
+              - alt="" because the <h3> below already describes it
+              - aria-hidden="true" hides the img from screen readers
+              - width/height prevent layout shift while loading
+            -->
+                        <img src="assets/icons/icon-code.svg" alt="" aria-hidden="true" width="32" height="32" />
+                    </div>
+                    <h3>Development</h3>
+                    <p>Clean, efficient code</p>
                 </div>
-                <h3>Design</h3>
-                <p>Beautiful interfaces</p>
-            </div>
-            <div class="about-card">
-                <div class="icon-wrapper">
-                    <i class="fa-solid fa-bolt"></i>
+
+                <!-- Card 2: Design -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <img src="assets/icons/icon-palette.svg" alt="" aria-hidden="true" width="32" height="32" />
+                    </div>
+                    <h3>Design</h3>
+                    <p>Beautiful interfaces</p>
                 </div>
-                <h3>Performance</h3>
-                <p>Fast & responsive</p>
+
+                <!-- Card 3: Performance -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <img src="assets/icons/icon-zap.svg" alt="" aria-hidden="true" width="32" height="32" />
+                    </div>
+                    <h3>Performance</h3>
+                    <p>Fast &amp; responsive</p>
+                </div>
+
+            </div><!-- /skills-grid -->
+        </div>
+    </section>
+
+
+    <!-- ========================================================
+       PROJECTS — portfolio work showcase
+       Cards are built DYNAMICALLY by assets/js/script.js
+       ======================================================== -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <p class="section-subtitle">
+                Here are some of my recent works that showcase my skills
+                and passion for web development.
+            </p>
+
+            <!--
+        This empty <div> is the project grid.
+        JavaScript reads the `projects` array and injects
+        one <article class="project-card"> for each entry.
+      -->
+            <div class="projects-grid" id="projects-grid">
+                <!-- Project cards inserted here by script.js -->
             </div>
         </div>
     </section>
 
-    <section id="projects">
-        <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">Here are some of my recent works that showcase my skills and passion for web development.</p>
-        
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-image-placeholder">
-                    <div class="mock-ecommerce">
-                        <div class="mock-box"></div>
-                        <div class="mock-box"></div>
-                        <div class="mock-box"></div>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <h3>E-Commerce Platform</h3>
-                    <p>A modern online shopping experience with seamless checkout and product management.</p>
-                    <div class="tech-badges">
-                        <span class="badge">HTML</span>
-                        <span class="badge">CSS</span>
-                        <span class="badge">JavaScript</span>
-                    </div>
-                </div>
-            </div>
 
-            <div class="project-card">
-                <div class="project-image-placeholder">
-                    <div class="mock-portfolio"></div>
-                </div>
-                <div class="project-info">
-                    <h3>Portfolio Website</h3>
-                    <p>A sleek and responsive portfolio showcasing creative work and design projects.</p>
-                    <div class="tech-badges">
-                        <span class="badge">HTML</span>
-                        <span class="badge">CSS</span>
-                        <span class="badge">JavaScript</span>
-                    </div>
-                </div>
-            </div>
+    <!-- ========================================================
+       FOOTER / CONTACT
+       id="contact" is the anchor target for the nav link
+       ======================================================== -->
+    <footer id="contact">
+        <div class="container footer-inner">
 
-            <div class="project-card">
-                <div class="project-image-placeholder">
-                    <div class="mock-phone"></div>
-                </div>
-                <div class="project-info">
-                    <h3>Mobile App Interface</h3>
-                    <p>An intuitive mobile-first design with smooth animations and user-friendly navigation.</p>
-                    <div class="tech-badges">
-                        <span class="badge">HTML</span>
-                        <span class="badge">CSS</span>
-                        <span class="badge">JavaScript</span>
-                    </div>
-                </div>
-            </div>
+            <h2 class="footer-title">Let's Connect</h2>
+
+            <div class="social-links">
+
+                <!--
+          Social icon buttons.
+          - href="#" is a placeholder — replace with your real URL
+          - aria-label describes the link for screen readers
+          - The icon image has alt="" + aria-hidden because aria-label
+            already describes the link's purpose
+        -->
+
+                <!-- GitHub -->
+                <a href="#" class="social-btn" aria-label="Visit my GitHub profile">
+                    <img src="assets/icons/icon-github.svg" alt="" aria-hidden="true" width="20" height="20" />
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="#" class="social-btn" aria-label="Connect on LinkedIn">
+                    <img src="assets/icons/icon-linkedin.svg" alt="" aria-hidden="true" width="20" height="20" />
+                </a>
+
+                <!-- Twitter / X -->
+                <a href="#" class="social-btn" aria-label="Follow me on Twitter">
+                    <img src="assets/icons/icon-twitter.svg" alt="" aria-hidden="true" width="20" height="20" />
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:dan@example.com" class="social-btn" aria-label="Send me an email">
+                    <img src="assets/icons/icon-mail.svg" alt="" aria-hidden="true" width="20" height="20" />
+                </a>
+
+            </div><!-- /social-links -->
+
+            <!--
+        Copyright year is injected by script.js so it auto-updates every year.
+        id="footer-copy" is the selector used in the JS file.
+      -->
+            <p class="footer-copy" id="footer-copy"></p>
+
         </div>
-    </section>
-
-    <footer id="connect">
-        <h2>Let's Connect</h2>
-        <div class="social-links">
-            <a href="#" class="social-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" class="social-icon" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
-            <a href="mailto:your-email@example.com" class="social-icon" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-        </div>
-        <p>&copy; 2026 Dan. All rights reserved.</p>
     </footer>
 
+
+    <!--
+    Script tag goes at the BOTTOM of <body> — best practice.
+    Reason: the HTML above is parsed first, so all elements exist
+    in the DOM before JavaScript tries to select them.
+  -->
+    <script src="assets/js/script.js"></script>
+
 </body>
+
 </html>
