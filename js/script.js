@@ -92,21 +92,21 @@ const projects = [
     {
         title: 'E-Commerce Platform',
         description: 'A modern online shopping experience with seamless checkout and product management.',
-        image: 'assets/images/project-ecommerce.svg', // ← replace .svg with your real image
+        image: 'images/project-ecommerce.svg', // ← replace .svg with your real image
         tags: ['HTML', 'CSS', 'JavaScript'],
         link: '#'  // ← replace '#' with the live URL of your project
     },
     {
         title: 'Portfolio Website',
         description: 'A sleek and responsive portfolio showcasing creative work and design projects.',
-        image: 'assets/images/project-portfolio.svg', // ← replace with your image
+        image: 'images/project-portfolio.svg', // ← replace with your image
         tags: ['HTML', 'CSS', 'JavaScript'],
         link: '#'
     },
     {
         title: 'Mobile App Interface',
         description: 'An intuitive mobile-first design with smooth animations and user-friendly navigation.',
-        image: 'assets/images/project-mobile.svg',    // ← replace with your image
+        image: 'images/project-mobile.svg',    // ← replace with your image
         tags: ['HTML', 'CSS', 'JavaScript'],
         link: '#'
     }
