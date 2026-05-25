@@ -1,193 +1,132 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tomiwa Portfolio</title>
-
-  <link rel="stylesheet" href="style.css"/>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <script src="https://unpkg.com/feather-icons"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aishat | Web Developer Portfolio</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <div class="logo">Tomiwa </div>
-
-    <div class="menu-btn">
-      <i data-feather="menu"></i>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Hi, I'm Tomiwa </h1>
-    <p>I build websites.</p>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="about">
-    <h2>About Me</h2>
-
-    <p class="about-text">
-      I'm a passionate web developer with a love for creating beautiful,
-      functional websites. With expertise in modern web technologies,
-      I transform ideas into engaging digital experiences that users love.
-    </p>
-
-    <div class="cards">
-
-      <div class="card">
-        <div class="icon-circle">
-          <i data-feather="code"></i>
+    <header>
+        <div class="nav-container">
+            <a href="#home" class="logo">Aishat</a>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#connect">Contact</a>
+            </nav>
         </div>
+    </header>
 
-        <h3>Development</h3>
-        <p>Clean, efficient code</p>
-      </div>
+    <section id="home">
+        <h1>Hi, I'm Aishat</h1>
+        <p>I build websites.</p>
+    </section>
 
-      <div class="card">
-        <div class="icon-circle">
-          <i data-feather="aperture"></i>
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">I'm a passionate web developer with a love for creating functional and responsive websites.</p>
+        
+        <div class="about-grid">
+            <div class="about-card">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+                <h3>Development</h3>
+                <p>Clean, efficient code</p>
+            </div>
+            <div class="about-card">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-palette"></i>
+                </div>
+                <h3>Design</h3>
+                <p>Beautiful interfaces</p>
+            </div>
+            <div class="about-card">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <h3>Performance</h3>
+                <p>Fast & responsive</p>
+            </div>
         </div>
+    </section>
 
-        <h3>Design</h3>
-        <p>Beautiful interfaces</p>
-      </div>
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">Here are some of my recent works that showcase my skills and passion for web development.</p>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image-placeholder">
+                    <div class="mock-ecommerce">
+                        <div class="mock-box"></div>
+                        <div class="mock-box"></div>
+                        <div class="mock-box"></div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>E-Commerce Platform</h3>
+                    <p>A modern online shopping experience with seamless checkout and product management.</p>
+                    <div class="tech-badges">
+                        <span class="badge">HTML</span>
+                        <span class="badge">CSS</span>
+                        <span class="badge">JavaScript</span>
+                    </div>
+                </div>
+            </div>
 
-      <div class="card">
-        <div class="icon-circle">
-          <i data-feather="zap"></i>
+            <div class="project-card">
+                <div class="project-image-placeholder">
+                    <div class="mock-portfolio"></div>
+                </div>
+                <div class="project-info">
+                    <h3>Portfolio Website</h3>
+                    <p>A sleek and responsive portfolio showcasing creative work and design projects.</p>
+                    <div class="tech-badges">
+                        <span class="badge">HTML</span>
+                        <span class="badge">CSS</span>
+                        <span class="badge">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image-placeholder">
+                    <div class="mock-phone"></div>
+                </div>
+                <div class="project-info">
+                    <h3>Mobile App Interface</h3>
+                    <p>An intuitive mobile-first design with smooth animations and user-friendly navigation.</p>
+                    <div class="tech-badges">
+                        <span class="badge">HTML</span>
+                        <span class="badge">CSS</span>
+                        <span class="badge">JavaScript</span>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <h3>Performance</h3>
-        <p>Fast & responsive</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="projects">
-
-    <h2>Projects</h2>
-
-    <p class="project-intro">
-      Here are some of my recent works that showcase
-      my skills and passion for web development.
-    </p>
-
-    <!-- PROJECT 1 -->
-    <div class="project-card">
-
-      <div class="project-image purple">
-        <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" />
-      </div>
-
-      <div class="project-content">
-        <h3>E-Commerce Platform</h3>
-
-        <p>
-          A modern online shopping experience with
-          seamless checkout and product management.
-        </p>
-
-        <div class="tags">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
+    <footer id="connect">
+        <h2>Let's Connect</h2>
+        <div class="social-links">
+            <a href="#" class="social-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="mailto:your-email@example.com" class="social-icon" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
         </div>
-      </div>
-
-    </div>
-
-    <!-- PROJECT 2 -->
-    <div class="project-card">
-
-      <div class="project-image lavender">
-        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968267.png" />
-      </div>
-
-      <div class="project-content">
-        <h3>Portfolio Website</h3>
-
-        <p>
-          A sleek and responsive portfolio showcasing
-          creative work and design projects.
-        </p>
-
-        <div class="tags">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- PROJECT 3 -->
-    <div class="project-card">
-
-      <div class="project-image green">
-        <img src="https://cdn-icons-png.flaticon.com/512/545/545245.png" />
-      </div>
-
-      <div class="project-content">
-        <h3>Mobile App Interface</h3>
-
-        <p>
-          An intuitive mobile-first design with smooth
-          animations and user-friendly navigation.
-        </p>
-
-        <div class="tags">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
-        </div>
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-
-    <h2>Let's Connect</h2>
-
-    <div class="socials">
-
-      <div class="social-circle">
-        <i data-feather="github"></i>
-      </div>
-
-      <div class="social-circle">
-        <i data-feather="linkedin"></i>
-      </div>
-
-      <div class="social-circle">
-        <i data-feather="twitter"></i>
-      </div>
-
-      <div class="social-circle">
-        <i data-feather="mail"></i>
-      </div>
-
-    </div>
-
-    <p>© 2026 Dan. All rights reserved.</p>
-
-  </footer>
-
-<script>
-  feather.replace();
-</script>
+        <p>&copy; 2026 Dan. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
