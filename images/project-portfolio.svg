@@ -1,0 +1,32 @@
+<!--
+  PLACEHOLDER IMAGE — Portfolio Website
+  Replace this file with your own image (JPEG or PNG, ideally 800×480px)
+  Keep the same filename: project-portfolio.jpg (or update src in script.js)
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480">
+  <!-- Background -->
+  <rect width="800" height="480" fill="#ede9fe"/>
+
+  <!-- Browser window frame -->
+  <rect x="80" y="80" width="640" height="300" rx="12" fill="#ffffff" opacity=".9"/>
+  <rect x="80" y="80" width="640" height="36"  rx="12" fill="#ddd6fe"/>
+  <circle cx="110" cy="98" r="7" fill="#f87171"/>
+  <circle cx="132" cy="98" r="7" fill="#fbbf24"/>
+  <circle cx="154" cy="98" r="7" fill="#34d399"/>
+
+  <!-- Hero section inside browser -->
+  <rect x="100" y="130" width="600" height="80" rx="6" fill="#7c3aed" opacity=".15"/>
+  <rect x="260" y="148" width="280" height="16" rx="4" fill="#7c3aed" opacity=".4"/>
+  <rect x="310" y="174" width="180" height="10" rx="4" fill="#7c3aed" opacity=".25"/>
+
+  <!-- Card row inside browser -->
+  <rect x="100" y="230" width="180" height="120" rx="8" fill="#f5f3ff"/>
+  <rect x="310" y="230" width="180" height="120" rx="8" fill="#f5f3ff"/>
+  <rect x="520" y="230" width="180" height="120" rx="8" fill="#f5f3ff"/>
+
+  <!-- Label -->
+  <text x="400" y="445" font-family="system-ui, sans-serif" font-size="16" fill="#7c3aed"
+        text-anchor="middle" font-weight="600">
+    Replace with your project image — 800 × 480 px recommended
+  </text>
+</svg>

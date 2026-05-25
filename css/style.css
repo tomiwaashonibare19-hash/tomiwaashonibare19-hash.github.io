@@ -1,0 +1,663 @@
+/* ============================================================
+   PORTFOLIO – VANILLA CSS
+   File: assets/css/style.css
+
+   TABLE OF CONTENTS
+   1.  Design Tokens (CSS Custom Properties)
+   2.  Reset & Base Styles
+   3.  Layout Utility (.container)
+   4.  Reusable Section Helpers
+   5.  Header & Navigation
+   6.  Hero Section
+   7.  About / Skills Section
+   8.  Projects Section
+   9.  Footer / Contact Section
+   10. Animations
+   11. Responsive Breakpoints
+   ============================================================ */
+
+
+/* ── 1. Design Tokens ─────────────────────────────────────── */
+/*
+   CSS Custom Properties (variables) keep all design decisions
+   in one place. Change a value here and it updates everywhere.
+*/
+:root {
+    /* --- Color Palette --- */
+    --color-white: #ffffff;
+    --color-gray-50: #f9fafb;
+    --color-gray-100: #f3f4f6;
+    --color-gray-200: #e5e7eb;
+    --color-gray-400: #9ca3af;
+    --color-gray-600: #4b5563;
+    --color-gray-700: #374151;
+    --color-gray-800: #1f2937;
+    --color-gray-900: #111827;
+    --color-indigo-50: #eef2ff;
+    --color-indigo-100: #e0e7ff;
+    --color-indigo-600: #4f46e5;
+    --color-indigo-700: #4338ca;
+
+    /* --- Gradients --- */
+    --hero-gradient: linear-gradient(135deg, #eff6ff 0%, #e0e7ff 100%);
+
+    /* --- Typography ---
+     No external font loaded — uses the OS default sans-serif.
+     This is the system font stack used by GitHub, Apple, etc.
+  */
+    --font-family: system-ui, -apple-system, BlinkMacSystemFont,
+        'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+
+    --font-size-sm: 0.875rem;
+    /* 14px */
+    --font-size-md: 1rem;
+    /* 16px */
+    --font-size-lg: 1.125rem;
+    /* 18px */
+    --font-size-xl: 1.25rem;
+    /* 20px */
+    --font-size-2xl: 1.5rem;
+    /* 24px */
+    --font-size-3xl: 1.875rem;
+    /* 30px */
+    --font-size-4xl: 2.25rem;
+    /* 36px */
+    --font-size-5xl: 3rem;
+    /* 48px */
+    --font-size-6xl: 3.75rem;
+    /* 60px */
+    --font-size-7xl: 4.5rem;
+    /* 72px */
+
+    /* --- Spacing (multiples of 4px) --- */
+    --space-2: 0.5rem;
+    /*  8px */
+    --space-3: 0.75rem;
+    /* 12px */
+    --space-4: 1rem;
+    /* 16px */
+    --space-6: 1.5rem;
+    /* 24px */
+    --space-8: 2rem;
+    /* 32px */
+    --space-12: 3rem;
+    /* 48px */
+    --space-16: 4rem;
+    /* 64px */
+    --space-20: 5rem;
+    /* 80px */
+
+    /* --- Layout --- */
+    --max-width: 80rem;
+    /* 1280px — keeps content readable on wide screens */
+    --header-height: 4rem;
+    /* 64px  — fixed navbar height */
+
+    /* --- Border Radius --- */
+    --radius-full: 9999px;
+    /* pill/circle shapes */
+    --radius-xl: 0.75rem;
+    /* card corners */
+
+    /* --- Box Shadows --- */
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / .10),
+        0 2px 4px -2px rgb(0 0 0 / .10);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / .10),
+        0 8px 10px -6px rgb(0 0 0 / .10);
+
+    /* --- Transitions --- */
+    --transition-colors: color .15s ease, background-color .15s ease;
+    --transition-shadow: box-shadow .2s ease;
+    --transition-transform: transform .3s ease;
+    --transition-opacity: opacity .2s ease;
+}
+
+
+/* ── 2. Reset & Base Styles ───────────────────────────────── */
+/*
+   A minimal reset removes browser inconsistencies so your
+   styles behave the same everywhere.
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    /* padding & border included in element width */
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    /* base font size — rem values scale from here */
+    scroll-behavior: smooth;
+    /* CSS smooth scrolling for anchor links */
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--color-gray-900);
+    background-color: var(--color-white);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+img {
+    display: block;
+    /* removes inline gap under images */
+    max-width: 100%;
+    /* images never overflow their container */
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+}
+
+
+/* ── 3. Layout Utility ────────────────────────────────────── */
+/*
+   .container centres content and adds consistent side padding.
+   Wrapped in a container: header, all sections, footer.
+*/
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-4);
+    /* mobile default */
+    padding-right: var(--space-4);
+}
+
+
+/* ── 4. Reusable Section Helpers ──────────────────────────── */
+.section-title {
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    text-align: center;
+    color: var(--color-gray-900);
+    margin-bottom: var(--space-8);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--color-gray-600);
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--space-16);
+}
+
+
+/* ── 5. Header & Navigation ───────────────────────────────── */
+#site-header {
+    position: fixed;
+    /* stays at the top as user scrolls */
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.85);
+    /* backdrop-filter blurs the page content visible through the header */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    /* Safari prefix */
+    border-bottom: 1px solid var(--color-gray-200);
+    z-index: 50;
+    /* sits above all other content */
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+}
+
+.logo {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-gray-900);
+}
+
+/* Desktop nav — hidden on mobile, shown at 768px+ */
+.nav-desktop {
+    display: none;
+    gap: var(--space-8);
+}
+
+.nav-link {
+    font-size: var(--font-size-md);
+    color: var(--color-gray-700);
+    transition: var(--transition-colors);
+}
+
+.nav-link:hover {
+    color: var(--color-indigo-600);
+}
+
+/* Hamburger button — three CSS bars, no image needed */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: var(--space-2);
+}
+
+.bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-gray-700);
+    border-radius: 2px;
+    transition: transform .3s ease, opacity .3s ease;
+    transform-origin: center;
+}
+
+/* Animate ☰ → ✕ when aria-expanded="true" */
+.hamburger[aria-expanded="true"] .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger[aria-expanded="true"] .bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.hamburger[aria-expanded="true"] .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile dropdown nav */
+.nav-mobile {
+    border-top: 1px solid var(--color-gray-200);
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-4);
+}
+
+/* The HTML `hidden` attribute maps to display:none natively,
+   but we reinforce it here for clarity */
+.nav-mobile[hidden] {
+    display: none;
+}
+
+.mobile-link {
+    display: block;
+    padding-top: var(--space-2);
+    padding-bottom: var(--space-2);
+    width: 100%;
+}
+
+
+/* ── 6. Hero Section ──────────────────────────────────────── */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--hero-gradient);
+    padding-top: var(--header-height);
+    /* prevent content hiding behind fixed header */
+}
+
+.hero-content {
+    text-align: center;
+}
+
+.hero-title {
+    font-size: var(--font-size-5xl);
+    font-weight: 700;
+    color: var(--color-gray-900);
+    margin-bottom: var(--space-6);
+    line-height: 1.1;
+    /* Entrance animation — defined in section 10 */
+    animation: fadeInDown .7s ease both;
+}
+
+.hero-subtitle {
+    font-size: var(--font-size-xl);
+    color: var(--color-gray-700);
+    /* Slight delay so subtitle fades in after title */
+    animation: fadeInUp .7s .15s ease both;
+}
+
+
+/* ── 7. About / Skills Section ────────────────────────────── */
+.about {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-20);
+    background-color: var(--color-white);
+}
+
+.about-intro {
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: var(--space-16);
+}
+
+.about-intro p {
+    font-size: var(--font-size-lg);
+    color: var(--color-gray-700);
+    line-height: 1.7;
+}
+
+/* CSS Grid: 1 column → 3 columns on tablet/desktop */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+}
+
+.skill-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-8);
+    border-radius: var(--radius-xl);
+    background-color: var(--color-gray-50);
+    text-align: center;
+    transition: var(--transition-colors), transform .2s ease;
+}
+
+.skill-card:hover {
+    background-color: var(--color-gray-100);
+    transform: translateY(-4px);
+}
+
+.skill-icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: var(--radius-full);
+    background-color: var(--color-indigo-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-4);
+}
+
+/* Icons loaded via <img> need explicit size */
+.skill-icon img {
+    width: 32px;
+    height: 32px;
+}
+
+.skill-card h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--color-gray-900);
+    margin-bottom: var(--space-2);
+}
+
+.skill-card p {
+    color: var(--color-gray-600);
+}
+
+
+/* ── 8. Projects Section ──────────────────────────────────── */
+.projects {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-20);
+    background-color: var(--color-gray-50);
+}
+
+/* 1 → 2 → 3 column grid responsive */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+}
+
+.project-card {
+    background-color: var(--color-white);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    /* clips the image zoom inside the card */
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-shadow), transform .2s ease;
+}
+
+.project-card:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-4px);
+}
+
+.project-img-wrap {
+    position: relative;
+    height: 12rem;
+    /* fixed height so all cards align */
+    overflow: hidden;
+}
+
+.project-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* crop image to fill, keep aspect ratio */
+    transition: var(--transition-transform);
+}
+
+.project-card:hover .project-img-wrap img {
+    transform: scale(1.05);
+    /* subtle zoom on hover */
+}
+
+/* External-link icon: hidden until card is hovered */
+.project-link-icon {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: var(--color-white);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition-opacity);
+}
+
+.project-link-icon img {
+    width: 20px;
+    height: 20px;
+}
+
+.project-card:hover .project-link-icon {
+    opacity: 1;
+}
+
+.project-info {
+    padding: var(--space-6);
+}
+
+.project-info h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--color-gray-900);
+    margin-bottom: var(--space-2);
+}
+
+.project-info p {
+    color: var(--color-gray-600);
+    margin-bottom: var(--space-4);
+    line-height: 1.6;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.tag {
+    padding: 0.25rem var(--space-3);
+    background-color: var(--color-indigo-50);
+    color: var(--color-indigo-700);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    border-radius: var(--radius-full);
+}
+
+
+/* ── 9. Footer / Contact Section ──────────────────────────── */
+#contact {
+    background-color: var(--color-gray-900);
+    color: var(--color-white);
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+}
+
+.footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-6);
+}
+
+.social-links {
+    display: flex;
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
+}
+
+.social-btn {
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--color-gray-800);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    transition: var(--transition-colors), transform .15s ease;
+}
+
+.social-btn:hover {
+    background-color: var(--color-indigo-600);
+    transform: translateY(-3px);
+}
+
+.social-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.footer-copy {
+    color: var(--color-gray-400);
+    font-size: var(--font-size-sm);
+}
+
+
+/* ── 10. Animations ───────────────────────────────────────── */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ── 11. Responsive Breakpoints ───────────────────────────── */
+/*
+   Mobile-first: styles above apply to all screen sizes.
+   These @media rules OVERRIDE styles for larger screens.
+*/
+
+/* Small screens and up (≥ 640px) */
+@media (min-width: 640px) {
+    .container {
+        padding-left: var(--space-6);
+        padding-right: var(--space-6);
+    }
+
+    .section-title {
+        font-size: var(--font-size-5xl);
+    }
+
+    .hero-title {
+        font-size: var(--font-size-6xl);
+    }
+
+    .hero-subtitle {
+        font-size: var(--font-size-2xl);
+    }
+}
+
+/* Medium screens and up (≥ 768px) */
+@media (min-width: 768px) {
+
+    /* Show desktop nav, hide hamburger */
+    .nav-desktop {
+        display: flex;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    /* 3-column skill cards */
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* 2-column project grid */
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Large screens and up (≥ 1024px) */
+@media (min-width: 1024px) {
+    .container {
+        padding-left: var(--space-8);
+        padding-right: var(--space-8);
+    }
+
+    .hero-title {
+        font-size: var(--font-size-7xl);
+    }
+
+    .hero-subtitle {
+        font-size: var(--font-size-3xl);
+    }
+
+    /* 3-column project grid */
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

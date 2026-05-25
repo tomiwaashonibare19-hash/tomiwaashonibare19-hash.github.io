@@ -1,0 +1,32 @@
+<!--
+  PLACEHOLDER IMAGE — Mobile App Interface
+  Replace this file with your own image (JPEG or PNG, ideally 800×480px)
+  Keep the same filename: project-mobile.jpg (or update src in script.js)
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480">
+  <!-- Background -->
+  <rect width="800" height="480" fill="#ccfbf1"/>
+
+  <!-- Phone frame -->
+  <rect x="290" y="60" width="220" height="360" rx="28" fill="#ffffff" stroke="#0d9488" stroke-width="4"/>
+  <rect x="290" y="60" width="220" height="60"  rx="28" fill="#0d9488"/>
+  <rect x="290" y="90" width="220" height="30"  fill="#0d9488"/>
+  <!-- Notch -->
+  <rect x="360" y="68" width="80" height="14" rx="7" fill="#115e59"/>
+
+  <!-- App content rows -->
+  <rect x="310" y="140" width="180" height="50" rx="8" fill="#ccfbf1"/>
+  <rect x="310" y="202" width="180" height="50" rx="8" fill="#ccfbf1"/>
+  <rect x="310" y="264" width="180" height="50" rx="8" fill="#ccfbf1"/>
+
+  <!-- Bottom nav bar -->
+  <rect x="290" y="330" width="220" height="50" rx="0" fill="#f0fdfa"/>
+  <rect x="290" y="358" width="220" height="32" rx="0" fill="#f0fdfa"/>
+  <rect x="290" y="350" width="220" height="2"  fill="#99f6e4"/>
+
+  <!-- Label -->
+  <text x="400" y="445" font-family="system-ui, sans-serif" font-size="16" fill="#0d9488"
+        text-anchor="middle" font-weight="600">
+    Replace with your project image — 800 × 480 px recommended
+  </text>
+</svg>

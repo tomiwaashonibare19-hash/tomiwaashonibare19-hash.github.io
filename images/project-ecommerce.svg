@@ -1,0 +1,37 @@
+<!--
+  PLACEHOLDER IMAGE — E-Commerce Platform
+  Replace this file with your own image (JPEG or PNG, ideally 800×480px)
+  Keep the same filename: project-ecommerce.jpg (or update src in script.js)
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480">
+  <!-- Background -->
+  <rect width="800" height="480" fill="#e0e7ff"/>
+
+  <!-- Card shapes simulating product grid -->
+  <rect x="60"  y="100" width="190" height="240" rx="12" fill="#ffffff" opacity=".9"/>
+  <rect x="305" y="100" width="190" height="240" rx="12" fill="#ffffff" opacity=".9"/>
+  <rect x="550" y="100" width="190" height="240" rx="12" fill="#ffffff" opacity=".9"/>
+
+  <!-- Product color blocks -->
+  <rect x="75"  y="115" width="160" height="110" rx="8" fill="#c7d2fe"/>
+  <rect x="320" y="115" width="160" height="110" rx="8" fill="#a5b4fc"/>
+  <rect x="565" y="115" width="160" height="110" rx="8" fill="#818cf8"/>
+
+  <!-- Price tag lines -->
+  <rect x="75"  y="240" width="80" height="10" rx="4" fill="#4f46e5"/>
+  <rect x="320" y="240" width="80" height="10" rx="4" fill="#4f46e5"/>
+  <rect x="565" y="240" width="80" height="10" rx="4" fill="#4f46e5"/>
+
+  <!-- Shopping cart icon (center bottom) -->
+  <g transform="translate(340, 370)" fill="none" stroke="#4f46e5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="9"  cy="21" r="1" fill="#4f46e5"/>
+    <circle cx="20" cy="21" r="1" fill="#4f46e5"/>
+    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+  </g>
+
+  <!-- Label -->
+  <text x="400" y="445" font-family="system-ui, sans-serif" font-size="16" fill="#6366f1"
+        text-anchor="middle" font-weight="600">
+    Replace with your project image — 800 × 480 px recommended
+  </text>
+</svg>
